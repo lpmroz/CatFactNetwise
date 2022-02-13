@@ -24,6 +24,16 @@ namespace CatFactNetwise.Controllers
             _FileService.MessageWriteToFile(test.Result);
             return View();
         }
+        public IActionResult GetFact()
+        {
+            var message = _service.GetFact();
+            _FileService.MessageWriteToFile(message.Result);
+            ViewBag.Message = message.Result;
+            var test = new MessageModel() { Text = message.Result };
+
+            return View("Index", test);
+            //return RedirectToAction("Index");
+        }
 
         public IActionResult About()
         {
@@ -39,14 +49,7 @@ namespace CatFactNetwise.Controllers
             return View();
         }
 
-        public IActionResult GetFact()
-        {
-           
-              //= _service.GetFact();
-              ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+       
 
         public IActionResult Privacy()
         {

@@ -9,7 +9,7 @@ namespace CatFactNetwise.Services
 {
     public class FileService: IFileService
     {
-        string Path = @"C:\aaa\MyTest.txt";
+        string Path = @"C:MyTest.txt";
         public bool ExistFile()
         {
             var result = File.Exists(Path);
